@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Rent" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-RCV0LP2\SQLEXPRESS;Initial Catalog=Rent;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Finals_Landlord_.Properties.Settings" SettingsPropertyName="RentConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.JobOrder" Member="JobOrders">
+    <Type Name="JobOrder">
+      <Column Name="JobOrderID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="JobOrder_Desc" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="UnitID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TenantID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Payment" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_JobOrder" Member="Employee" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Unit_JobOrder" Member="Unit" ThisKey="UnitID" OtherKey="UnitID" Type="Unit" IsForeignKey="true" />
+      <Association Name="Tenant_JobOrder" Member="Tenant" ThisKey="TenantID" OtherKey="TenantID" Type="Tenant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Employee" Member="Employees">
+    <Type Name="Employee">
+      <Column Name="EmployeeID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Employee_FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Employee_LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Job" Type="System.String" DbType="NChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Status" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Employee_JobOrder" Member="JobOrders" ThisKey="EmployeeID" OtherKey="EmployeeID" Type="JobOrder" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Units" Member="Units">
+    <Type Name="Unit">
+      <Column Name="UnitID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="UnitNo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitSize" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitFloor" Type="System.String" DbType="NChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Unit_JobOrder" Member="JobOrders" ThisKey="UnitID" OtherKey="UnitID" Type="JobOrder" />
+      <Association Name="Unit_Tenant" Member="Tenants" ThisKey="UnitID" OtherKey="UnitID" Type="Tenant" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tenants" Member="Tenants">
+    <Type Name="Tenant">
+      <Column Name="TenantID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Tenant_FirstName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Tenant_LastName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Nationality" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Contact_Number" Type="System.String" DbType="NChar(15) NOT NULL" CanBeNull="false" />
+      <Column Name="Identification" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="UnitID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tenant_JobOrder" Member="JobOrders" ThisKey="TenantID" OtherKey="TenantID" Type="JobOrder" />
+      <Association Name="Tenant_Bill" Member="Bills" ThisKey="TenantID" OtherKey="TenantID" Type="Bill" />
+      <Association Name="Unit_Tenant" Member="Unit" ThisKey="UnitID" OtherKey="UnitID" Type="Unit" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Bills" Member="Bills">
+    <Type Name="Bill">
+      <Column Name="Bill_ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TenantID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="BillingPeriod_Beginning" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="BillingPeriod_End" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="Payment_Required" Type="System.Decimal" DbType="Money NOT NULL" CanBeNull="false" />
+      <Column Name="Bill_Desc" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Bill_status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tenant_Bill" Member="Tenant" ThisKey="TenantID" OtherKey="TenantID" Type="Tenant" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Function Name="dbo.EmployeeStatus" Method="EmployeeStatus">
+    <Parameter Name="status" Type="System.Int32" DbType="Int" />
+    <Parameter Name="FN" Parameter="fN" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LN" Parameter="lN" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NewFloor_Studio" Method="NewFloor_Studio">
+    <Parameter Name="UnitName" Parameter="unitName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Floor" Parameter="floor" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NewFloor_2Bedroom" Method="NewFloor_2Bedroom">
+    <Parameter Name="UnitName" Parameter="unitName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Floor" Parameter="floor" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.NewFloor_Penthouse" Method="NewFloor_Penthouse">
+    <Parameter Name="UnitName" Parameter="unitName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Floor" Parameter="floor" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.TenantRegister" Method="TenantRegister">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Nationality" Parameter="nationality" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="ContactNo" Parameter="contactNo" Type="System.String" DbType="NChar(15)" />
+    <Parameter Name="Identification" Parameter="identification" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="UnitID" Parameter="unitID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Employee_Register" Method="Employee_Register">
+    <Parameter Name="FirstName" Parameter="firstName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="LastName" Parameter="lastName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Job" Parameter="job" Type="System.String" DbType="NChar(20)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.JobOrders_ADD" Method="JobOrders_ADD">
+    <Parameter Name="Desc" Parameter="desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Unit" Parameter="unit" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Tenant" Parameter="tenant" Type="System.Int32" DbType="Int" />
+    <Parameter Name="Payment" Parameter="payment" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.JobOrder_Update" Method="JobOrder_Update">
+    <Parameter Name="EmployeeID" Parameter="employeeID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.Billing" Method="Billing">
+    <Parameter Name="TenantID" Parameter="tenantID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BS" Parameter="bS" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="BE" Parameter="bE" Type="System.DateTime" DbType="Date" />
+    <Parameter Name="payment" Type="System.Decimal" DbType="Money" />
+    <Parameter Name="desc" Type="System.String" DbType="NVarChar(MAX)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.updateBilling" Method="updateBilling">
+    <Parameter Name="TenantID" Parameter="tenantID" Type="System.Int32" DbType="Int" />
+    <Parameter Name="BillID" Parameter="billID" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>

@@ -1,0 +1,27 @@
+﻿<Window x:Class="Finals_Landlord_.Register"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finals_Landlord_"
+        mc:Ignorable="d"
+        Title="Landlord Management" Height="340" Width="707" ResizeMode="NoResize" Icon="/Icon.png">
+    <Grid>
+
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\User's\source\repos\Finals(Landlord)\Finals(Landlord)\Images\1807.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <ComboBox x:Name="Floor" HorizontalAlignment="Left" Height="44" Margin="454,87,0,0" VerticalAlignment="Top" Width="208" SelectionChanged="Floor_SelectionChanged" FontSize="27" FontWeight="Bold"/>
+        <ComboBox x:Name="Units" HorizontalAlignment="Left" Height="44" Margin="454,0,0,0" VerticalAlignment="Center" Width="208" FontSize="27" FontWeight="Bold" SelectionChanged="Units_SelectionChanged"/>
+        <Label Content="Units Available" HorizontalAlignment="Left" Height="44" Margin="466,38,0,0" VerticalAlignment="Top" Width="184" FontSize="27"/>
+        <Button x:Name="Register1" Content="Register" HorizontalAlignment="Left" Height="27" Margin="454,194,0,0" VerticalAlignment="Top" Width="208" Click="Button_Click"/>
+        <Button x:Name="Register_Employee" Content="Register a Employee" HorizontalAlignment="Left" Height="27" Margin="454,226,0,0" VerticalAlignment="Top" Width="208" Click="Register_Employee_Click"/>
+        <Button x:Name="Return" Content="Exit" HorizontalAlignment="Left" Height="22" Margin="486,258,0,0" VerticalAlignment="Top" Width="144" Click="Return_Click"/>
+        <TextBox x:Name="FirstName" HorizontalAlignment="Left" Height="39" Margin="18,38,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Width="337" FontSize="27" FontWeight="Normal" TextChanged="FirstName_TextChanged_1"/>
+        <TextBox x:Name="LastName" HorizontalAlignment="Left" Height="44" Margin="20,87,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Width="335" FontSize="27" FontWeight="Normal" TextChanged="LastName_TextChanged_1"/>
+        <TextBox x:Name="ContactNo" HorizontalAlignment="Left" Height="39" Margin="19,140,0,0" TextWrapping="Wrap" Text="Contact No" VerticalAlignment="Top" Width="335" FontSize="27" FontWeight="Normal" TextChanged="ContactNo_TextChanged_1"/>
+        <TextBox x:Name="Nationality" HorizontalAlignment="Left" Height="44" Margin="20,186,0,0" TextWrapping="Wrap" Text="Nationality" VerticalAlignment="Top" Width="334" FontSize="27" FontWeight="Normal" TextChanged="Nationality_TextChanged_1"/>
+        <TextBox x:Name="Identification" HorizontalAlignment="Left" Height="42" Margin="18,238,0,0" TextWrapping="Wrap" Text="Identification" VerticalAlignment="Top" Width="336" FontSize="27" FontWeight="Normal" TextChanged="Identification_TextChanged_1"/>
+        <Image HorizontalAlignment="Left" Height="498" Margin="95,109,0,0" VerticalAlignment="Top" Width="773" Source="/yor-forger-2_682y.png" IsHitTestVisible="False"/>
+    </Grid>
+</Window>

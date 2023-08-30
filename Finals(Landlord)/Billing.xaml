@@ -1,0 +1,34 @@
+﻿<Window x:Class="Finals_Landlord_.Bills"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finals_Landlord_"
+        mc:Ignorable="d"
+        Title="Landlord Management" Height="658" Width="800" ResizeMode="NoResize" Icon="/Icon.png">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\User's\source\repos\Finals(Landlord)\Finals(Landlord)\Images\4299170 .jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Calendar x:Name="Calendar" HorizontalAlignment="Left" Height="175" Margin="551,10,0,0" VerticalAlignment="Top" Width="249"/>
+        <Button x:Name="Exit" Content="Exit" HorizontalAlignment="Left" Height="29" Margin="355,58,0,0" VerticalAlignment="Top" Width="191" Click="Button_Click"/>
+        <Button x:Name="Confirm" Content="Billing Period Start" HorizontalAlignment="Left" Height="29" Margin="582,312,0,0" VerticalAlignment="Top" Width="186" Click="Confirm_Click"/>
+        <Label x:Name="Label" Content="Billing Start:" HorizontalAlignment="Left" Height="71" Margin="33,114,0,0" VerticalAlignment="Top" Width="393" FontSize="27"/>
+        <ComboBox x:Name="Floor" HorizontalAlignment="Left" Height="43" Margin="581,199,0,0" VerticalAlignment="Top" Width="186" FontWeight="Bold" FontSize="27" SelectionChanged="Floor_SelectionChanged"/>
+        <ComboBox x:Name="Units" HorizontalAlignment="Left" Height="43" Margin="582,257,0,0" VerticalAlignment="Top" Width="186" FontWeight="Bold" FontSize="27" SelectionChanged="Units_SelectionChanged"/>
+        <Label Content="Bill For:" HorizontalAlignment="Left" Height="45" Margin="33,461,0,0" VerticalAlignment="Top" Width="241" FontSize="30"/>
+        <Label x:Name="Tenant_Name" Content="" HorizontalAlignment="Left" Height="44" Margin="43,511,0,0" VerticalAlignment="Top" Width="297" FontSize="30"/>
+        <Label x:Name="Tenant_LN" Content="" HorizontalAlignment="Left" Height="48" Margin="43,560,0,0" VerticalAlignment="Top" Width="297" FontSize="30"/>
+        <Button x:Name="ViewBills" Content="View/Update Bills" HorizontalAlignment="Left" Height="30" Margin="355,23,0,0" VerticalAlignment="Top" Width="191" Click="ViewBills_Click"/>
+        <TextBox x:Name="Payment" HorizontalAlignment="Center" Height="52" Margin="0,248,0,0" TextWrapping="Wrap" Text="000.00" VerticalAlignment="Top" Width="312" FontSize="30" TextChanged="Payment_TextChanged"/>
+        <Label x:Name="Label_Copy" Content="Billing End:" HorizontalAlignment="Left" Height="71" Margin="33,175,0,0" VerticalAlignment="Top" Width="393" FontSize="27"/>
+        <Label x:Name="Billing_Pice" Content="Billing Amount:" HorizontalAlignment="Left" Height="71" Margin="33,246,0,0" VerticalAlignment="Top" Width="206" FontSize="27"/>
+        <Label x:Name="BillingS" Content="" HorizontalAlignment="Left" Height="71" Margin="210,115,0,0" VerticalAlignment="Top" Width="237" FontSize="27"/>
+        <Label x:Name="BillingE" Content="" HorizontalAlignment="Left" Height="71" Margin="216,177,0,0" VerticalAlignment="Top" Width="231" FontSize="27"/>
+        <Button x:Name="ADD" Content="Add Bill" HorizontalAlignment="Left" Height="64" Margin="33,23,0,0" VerticalAlignment="Top" Width="295" FontSize="35" Click="ADD_Click"/>
+        <Button x:Name="Billing_Period_End" Content="Billing Period End" HorizontalAlignment="Left" Height="29" Margin="583,346,0,0" VerticalAlignment="Top" Width="185" Click="Billing_Period_End_Click"/>
+        <Image HorizontalAlignment="Left" Height="330" Margin="544,312,0,0" VerticalAlignment="Top" Width="298" Source="/6d87b2cc-0a87-405a-a89a-7780991cb0c0.png" IsHitTestVisible="False"/>
+        <TextBox x:Name="Desc" HorizontalAlignment="Left" Height="135" Margin="33,326,0,0" TextWrapping="Wrap" Text="(Ex. Electricity, Water, Job Order, etc.)" VerticalAlignment="Top" Width="523" FontSize="30"/>
+
+    </Grid>
+</Window>

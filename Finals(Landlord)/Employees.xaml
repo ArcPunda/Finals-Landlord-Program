@@ -1,0 +1,29 @@
+﻿<Window x:Class="Finals_Landlord_.Employees"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finals_Landlord_"
+        mc:Ignorable="d"
+        Title="Landlord Management" Height="450" Width="800" ResizeMode="NoResize" Icon="/Icon.png">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\User's\source\repos\Finals(Landlord)\Finals(Landlord)\Images\Background_Employees.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Image HorizontalAlignment="Left" Height="380" Margin="10,26,0,0" VerticalAlignment="Top" Width="563" Source="/TextBox.jpg"/>
+        <Rectangle HorizontalAlignment="Left" Height="352" Margin="10,26,0,0" Stroke="Black" VerticalAlignment="Top" Width="563" StrokeThickness="5"/>
+
+        <Button x:Name="Next" Content="Next" HorizontalAlignment="Left" Height="40" Margin="142,325,0,0" VerticalAlignment="Top" Width="107" Click="Next_Click"/>
+        <Button x:Name="Previous" Content="Previous" HorizontalAlignment="Left" Height="40" Margin="26,325,0,0" VerticalAlignment="Top" Width="108" Click="Previous_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="0" Margin="26,128,0,0" Stroke="Black" VerticalAlignment="Top" Width="266"/>
+        <Label Content="Name:" HorizontalAlignment="Left" Height="45" Margin="26,71,0,0" VerticalAlignment="Top" Width="108" FontSize="27" FontWeight="Bold"/>
+        <Label Content="Availability:" HorizontalAlignment="Left" Height="45" Margin="26,166,0,0" VerticalAlignment="Top" Width="170" FontSize="27" FontWeight="Bold"/>
+        <Label x:Name="Name" Content="" HorizontalAlignment="Left" Height="45" Margin="37,116,0,0" VerticalAlignment="Top" Width="515" FontSize="27" FontWeight="Bold"/>
+        <Label x:Name="Avail" Content="" HorizontalAlignment="Left" Height="45" Margin="26,222,0,0" VerticalAlignment="Top" Width="526" FontSize="27" FontWeight="Bold"/>
+        <Button x:Name="Exit" Content="Return" HorizontalAlignment="Left" Height="32" Margin="400,329,0,0" VerticalAlignment="Top" Width="152" Click="Exit_Click"/>
+        <Rectangle HorizontalAlignment="Left" Height="45" Margin="10,26,0,0" Stroke="Black" VerticalAlignment="Top" Width="563" StrokeThickness="4"/>
+        <Image HorizontalAlignment="Left" Height="321" Margin="382,0,0,0" VerticalAlignment="Center" Width="693" Source="/Employee.png" IsHitTestVisible="False"/>
+        <ComboBox x:Name="Jobs_CB" HorizontalAlignment="Left" Height="40" Margin="15,28,0,0" VerticalAlignment="Top" Width="351" SelectionChanged="Jobs_CB_SelectionChanged" FontWeight="Bold" FontSize="27"/>
+        <Button x:Name="Status" Content="Update Availability" HorizontalAlignment="Left" Height="30" Margin="400,294,0,0" VerticalAlignment="Top" Width="152" Click="Status_Click"/>
+    </Grid>
+</Window>

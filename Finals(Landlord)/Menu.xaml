@@ -1,0 +1,22 @@
+﻿<Window x:Class="Finals_Landlord_.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Finals_Landlord_"
+        mc:Ignorable="d"
+        Title="Landlord Management" Height="681" Width="411" ResizeMode="NoResize" Icon="/Icon.png">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\User's\source\repos\Finals(Landlord)\Finals(Landlord)\Images\Background.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        <Button x:Name="Tenants" Content="Register" HorizontalAlignment="Center" Height="61" Margin="0,48,0,0" VerticalAlignment="Top" Width="318" Click="Tenants_Click"/>
+        <Button x:Name="Units" Content="Units/Tenants" HorizontalAlignment="Center" Height="61" Margin="0,135,0,0" VerticalAlignment="Top" Width="318" Click="Units_Click"/>
+        <Button x:Name="Job_Orders" Content="Job Orders" HorizontalAlignment="Center" Height="60" Margin="0,214,0,0" VerticalAlignment="Top" Width="318" Click="Job_Orders_Click"/>
+        <Button x:Name="Bills" Content="Bills" HorizontalAlignment="Center" Height="61" Margin="0,288,0,0" VerticalAlignment="Top" Width="318" Click="Bills_Click"/>
+        <Button x:Name="Employees_BTN" Content="Employees" HorizontalAlignment="Center" Height="61" Margin="0,365,0,0" VerticalAlignment="Top" Width="318" Click="Button_Click"/>
+        <Button x:Name="Exit_Btn" Content="Exit" HorizontalAlignment="Center" Height="41" Margin="0,443,0,0" VerticalAlignment="Top" Width="161" Click="Exit_Btn_Click_1"/>
+        <Image HorizontalAlignment="Left" Height="342" Margin="10,349,0,0" VerticalAlignment="Top" Width="382" Source="/Anya.png" IsHitTestVisible="False" IsEnabled="False"/>
+
+    </Grid>
+</Window>
